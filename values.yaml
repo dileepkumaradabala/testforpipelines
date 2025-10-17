@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: dileep746/flightreservation
+  tag: "v1.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 300
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations: {}
+  hosts:
+    - host: nginx.local
+      paths:
+        - path: /flightreservation
+          pathType: Prefix
+  tls: []
+
+  
